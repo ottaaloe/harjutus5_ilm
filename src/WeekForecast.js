@@ -12,7 +12,7 @@ const formatDate = (date, fmt) => {
 const WeekForecast = ({ dailyData, dailyUnits }) => (
     <table cellPadding="10" cellSpacing="0">
         <thead>
-            <tr>
+            <tr className="zebra">
                 <td>Prognoos</td>
                 <td><img style={{ width: '50px', padding: '1px' }} src={piltSunrise} /></td>
                 <td><img style={{ width: '50px', padding: '1px' }} src={piltSunset} /></td>
