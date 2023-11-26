@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/harjutus5_ilm/static/css/main.e0f3a68b.css",
+    "main.js": "/harjutus5_ilm/static/js/main.6d73bc83.js",
+    "static/js/787.423dbee7.chunk.js": "/harjutus5_ilm/static/js/787.423dbee7.chunk.js",
+    "static/media/sunrise.png": "/harjutus5_ilm/static/media/sunrise.0c1beb6419ebc13ce702.png",
+    "index.html": "/harjutus5_ilm/index.html",
+    "main.e0f3a68b.css.map": "/harjutus5_ilm/static/css/main.e0f3a68b.css.map",
+    "main.6d73bc83.js.map": "/harjutus5_ilm/static/js/main.6d73bc83.js.map",
+    "787.423dbee7.chunk.js.map": "/harjutus5_ilm/static/js/787.423dbee7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0f3a68b.css",
+    "static/js/main.6d73bc83.js"
+  ]
+}
