@@ -24,7 +24,6 @@ const WeekForecast = ({ dailyData, dailyUnits }) => (
         <tbody>
             {
                 dailyData.time.map((date, i) => (
-                    
                     <tr key={i} className={(i % 2) ? 'zebra' : ''}>
                         {console.log(date)}
                         <td>{formatDate(date, 'dddd D. MMM')}</td>
