@@ -13,7 +13,7 @@ const WeekForecast = ({ dailyData, dailyUnits }) => (
     <table cellPadding="10" cellSpacing="0">
         <thead>
             <tr>
-                <td>Päev</td>
+                <td>Prognoos</td>
                 <td><img style={{ width: '50px', padding: '1px' }} src={piltSunrise} /></td>
                 <td><img style={{ width: '50px', padding: '1px' }} src={piltSunset} /></td>
                 <td>Max/Min {dailyUnits.temperature_2m_max}</td>
