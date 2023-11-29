@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/harjutus5_ilm/static/css/main.8393bfcc.css",
-    "main.js": "/harjutus5_ilm/static/js/main.5ede7774.js",
+    "main.js": "/harjutus5_ilm/static/js/main.efd55829.js",
     "static/js/787.423dbee7.chunk.js": "/harjutus5_ilm/static/js/787.423dbee7.chunk.js",
     "static/media/sunrise.png": "/harjutus5_ilm/static/media/sunrise.0c1beb6419ebc13ce702.png",
     "index.html": "/harjutus5_ilm/index.html",
     "main.8393bfcc.css.map": "/harjutus5_ilm/static/css/main.8393bfcc.css.map",
-    "main.5ede7774.js.map": "/harjutus5_ilm/static/js/main.5ede7774.js.map",
+    "main.efd55829.js.map": "/harjutus5_ilm/static/js/main.efd55829.js.map",
     "787.423dbee7.chunk.js.map": "/harjutus5_ilm/static/js/787.423dbee7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8393bfcc.css",
-    "static/js/main.5ede7774.js"
+    "static/js/main.efd55829.js"
   ]
 }
