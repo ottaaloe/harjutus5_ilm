@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useRef } from 'react';
+
 import WeekForecast from './WeekForecast';
 
 import './App.css';
@@ -23,13 +25,39 @@ function App() {
       latitude: 66.5039,
       longitude: 25.7294,
     },
-
-    
   ]);
+  const newNameRef = useRef(null);
+  const newLongitudeRef = useRef(null);
+  const newLatitudeRef = useRef(null);
 
   const selectLocation = (location) => {
     setSelectedLocation(location);
     getLocationData(location);
+  }
+
+  const addLocation = () => {
+    if (newNameRef.current.value === '') {
+      newNameRef.current.focus();
+      return;
+    }
+    if (newLongitudeRef.current.value === '' || isNaN(newLongitudeRef.current.value)) {
+      newLongitudeRef.current.focus();
+      return;
+    }
+    if (newLatitudeRef.current.value === '' || isNaN(newLatitudeRef.current.value)) {
+      newLatitudeRef.current.focus();
+      return;
+    }
+    setLocations([...locations,
+    {
+      name: newNameRef.current.value,
+      latitude: newLatitudeRef.current.value,
+      longitude: newLongitudeRef.current.value,
+    }
+    ]);
+    newNameRef.current.value = '';
+    newLatitudeRef.current.value = '';
+    newLongitudeRef.current.value = '';
   }
 
   const getLocationData = async (location) => {
@@ -37,8 +65,6 @@ function App() {
     const data = await fetch(`https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,wind_speed_10m_max`);
     const dataJson = await data.json();
     setIsLoading(false);
-
-    // tee andmetega midagi...
     console.log(dataJson);
     setSelectedLocationWeather(dataJson);
   }
@@ -53,18 +79,29 @@ function App() {
               <a onClick={() => selectLocation(location)}>{location.name}</a>
             </div>
           ))}
+
+          <h3>New location</h3>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <input ref={newNameRef} placeholder='Name' />
+            <input ref={newLongitudeRef} placeholder='Longitude' />
+            <input ref={newLatitudeRef} placeholder='Latitude' />
+            <button onClick={() => addLocation()}>Add location</button>
+          </div>
+
         </div>
         <div style={{ textAlign: 'left' }}>
-          {selectedLocation ? (
+          {selectedLocation && selectedLocationWeather && selectedLocationWeather.daily ? (
             <>
               <h3>Ilmateade</h3>
               <div>
                 <div>{selectedLocation.name}</div>
+
                 {isLoading ? 'Laen...' : (
+
                   <div>
                     <div>Asukohas {selectedLocation.name} on {selectedLocationWeather.current.temperature_2m}{selectedLocationWeather.current_units.temperature_2m}.</div>
-                    
-                    <WeekForecast dailyData = {selectedLocationWeather.daily} dailyUnits = {selectedLocationWeather.daily_units}  />
+
+                    <WeekForecast dailyData={selectedLocationWeather.daily} dailyUnits={selectedLocationWeather.daily_units} />
 
                   </div>
                 )}
